@@ -6,12 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
-    {
-//        echo phpinfo();exit;
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
-       $result = $em->getRepository('ProductBundle:Product')->findAllOrderedByName();
-          echo "<pre>";print_r($result);exit;      
+        $result = $em->getRepository('ProductBundle:Product')->findAllOrderedByName();
+        
         return $this->render('ProductBundle:Default:index.html.twig');
     }
+
 }
